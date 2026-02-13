@@ -59,6 +59,7 @@ bash python "E:\\AI\\SKILLS\\company-research\\scripts\\<脚本名>.py" <功能>
 2. **行业定位**: 使用 `query_stock_info` 获取行业分类和概念板块
 3. **风险初筛**: 查看是否有明确的风险提示
 4. **深度信息获取**: 使用 `ollama_searcher` 获取公司基本信息（关键词："[公司名称] 基本信息"）
+   - **注意**: 此脚本需要Ollama服务运行，至少需要20秒等待时间
 
 **参考文档**: `references/industry_research.md` - 行业定位和分析方法
 
@@ -80,6 +81,7 @@ bash python "E:\\AI\\SKILLS\\company-research\\scripts\\<脚本名>.py" <功能>
 2. **重要事件**: 关注业绩预告、重大事项等
 3. **行业关联**: 搜索行业相关动态
 4. **智能分析补充**: 使用 `ollama_searcher` 获取深度分析（关键词："[公司名称] 近期动态"）
+   - **注意**: 此脚本需要Ollama服务运行，至少需要20秒等待时间
 
 **参考文档**: `references/industry_research.md` - 行业政策分析和趋势判断
 
@@ -107,24 +109,35 @@ bash python "E:\\AI\\SKILLS\\company-research\\scripts\\stock_inform.py" code_na
 bash python "E:\\AI\\SKILLS\\company-research\\scripts\\stock_inform.py" query_stock_info "000001.SZ"
 # 返回: 概念板块、行业分类、风险提示
 
-# 步骤3：获取财务数据
+# 步骤3：获取公司基本信息（Ollama智能搜索）
+# 注意：此步骤需要Ollama服务运行，至少需要20秒等待时间
+bash python "E:\\AI\\SKILLS\\company-research\\scripts\\ollama_searcher.py" "平安银行 基本信息"
+# 返回: 公司基本信息摘要
+
+# 步骤4：获取财务数据
 bash python "E:\\AI\\SKILLS\\company-research\\scripts\\stock_data.py" financial_data_handler "000001.SZ"
 # 返回: 近12期财务指标、估值统计
 
-# 步骤4：获取股东数据
+# 步骤5：获取股东数据
 bash python "E:\\AI\\SKILLS\\company-research\\scripts\\stock_data.py" holder_data_handler "000001.SZ"
 # 返回: 股东数量变化、十大股东
 
-# 步骤5：搜索新闻
+# 步骤6：搜索新闻
 bash python "E:\\AI\\SKILLS\\company-research\\scripts\\stock_data.py" news_handler "平安银行"
 # 返回: 近期新闻简报
 
-# 步骤6：深度分析 (可选)
+# 步骤7：获取深度分析（Ollama智能搜索）
+# 注意：此步骤需要Ollama服务运行，至少需要20秒等待时间
 bash python "E:\\AI\\SKILLS\\company-research\\scripts\\ollama_searcher.py" "平安银行 近期动态"
 # 返回: 深度分析摘要
 
-# 步骤7：基于以上数据，使用 one_pager_template.md 生成报告
+# 步骤8：基于以上数据，使用 one_pager_template.md 生成报告
 ```
+
+**Ollama注意事项**:
+- 使用前需确保Ollama服务已启动：`ollama serve`
+- ollama_searcher脚本每次调用至少需要20秒处理时间
+- 如Ollama不可用，可跳过步骤3和步骤7，基于其他数据生成简化版报告
 
 ## 报告生成原则
 

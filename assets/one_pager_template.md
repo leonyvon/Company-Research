@@ -10,13 +10,14 @@
 - **股票代码**: [从code_name_transformer获取]
 - **公司名称**: [从code_name_transformer获取]
 
-### 公司概况 (来自OllamaSearcher)
-[从OllamaSearcher获取的公司基本信息摘要，包括：
+### 公司概况 (来自ollama_searcher)
+[从ollama_searcher获取的公司基本信息摘要，包括：
 - 成立时间与历史沿革
 - 主营业务与产品线
 - 市场地位与竞争优势
 - 公司规模与员工情况
 - 发展历程与重要里程碑]
+*注：使用前需确保Ollama服务已启动：`ollama serve`*
 
 ### 行业与概念
 - **所属行业**: [从query_stock_info获取行业板块]
@@ -52,11 +53,11 @@
 
 ### 当前估值水平
 ```
-估值指标       当前值   近一年均值   历史分位数   行业对比
-PE(TTM)        X.XX    X.XX        XX%        [高/中/低于行业]
-PB(MRQ)        X.XX    X.XX        XX%        [高/中/低于行业]
-PS(TTM)        X.XX    X.XX        XX%        [高/中/低于行业]
-股息率         X.XX%   X.XX%       XX%        [高/中/低于行业]
+估值指标       当前值   近一年均值   历史分位数 
+PE(TTM)        X.XX    X.XX        XX%       
+PB(MRQ)        X.XX    X.XX        XX%        
+PS(TTM)        X.XX    X.XX        XX%       
+股息率         X.XX%   X.XX%       XX%       
 ```
 
 ### 估值结论
@@ -93,13 +94,14 @@ PS(TTM)        X.XX    X.XX        XX%        [高/中/低于行业]
    - [关键内容摘要]
    - [可能影响分析]
 
-### 智能分析补充 (来自OllamaSearcher)
-[从OllamaSearcher获取的近期动态深度分析，包括：
+### 智能分析补充 (来自ollama_searcher)
+[从ollama_searcher获取的近期动态深度分析，包括：
 - 近期重大事件与市场反应
 - 管理层变动与战略调整
 - 新产品/技术发布情况
 - 行业政策影响分析
 - 市场情绪与投资者关注点]
+*注：使用前需确保Ollama服务已启动：`ollama serve`*
 
 ### 行业相关动态
 - [相关行业政策或事件]
@@ -140,12 +142,12 @@ PS(TTM)        X.XX    X.XX        XX%        [高/中/低于行业]
 
 ## 数据来源说明
 
-### MCP工具调用记录
-1. **基本信息**: `stock-inform.code_name_transformer` + `stock-inform.query_stock_info`
-2. **财务数据**: `stock-data.financial_data_handler`
-3. **股东数据**: `stock-data.holder_data_handler`
-4. **新闻资讯**: `stock-data.news_handler`
-5. **深度分析**: `ollama-searcher.OllamaSearcher` (如可用)
+### 工具脚本调用记录
+1. **基本信息**: `stock_inform.py` - code_name_transformer + query_stock_info
+2. **财务数据**: `stock_data.py` - financial_data_handler
+3. **股东数据**: `stock_data.py` - holder_data_handler
+4. **新闻资讯**: `stock_data.py` - news_handler
+5. **深度分析（可选）**: `ollama_searcher.py` - 如使用Ollama进行智能搜索
 
 ### 数据时效性
 - 财务数据更新至: [最新报告期]
@@ -156,7 +158,7 @@ PS(TTM)        X.XX    X.XX        XX%        [高/中/低于行业]
 
 ## 免责声明
 
-本报告基于MCP工具自动化采集的公开信息生成，数据来源包括但不限于交易所公告、财经媒体等。报告中的分析和结论基于特定时点的信息，可能随情况变化而失效。投资者应独立判断，谨慎决策。
+本报告基于Python脚本工具自动化采集的公开信息生成，数据来源包括但不限于交易所公告、财经媒体等。报告中的分析和结论基于特定时点的信息，可能随情况变化而失效。投资者应独立判断，谨慎决策。
 
 **重要提示**: 投资有风险，入市需谨慎。本报告仅供参考，不构成任何投资建议。
 

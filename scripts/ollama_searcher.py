@@ -4,8 +4,12 @@ Ollama智能搜索工具
 """
 
 import sys
+import io
 import json
 from typing import Optional
+
+# 设置UTF-8输出编码
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 
 try:
     from ollama import chat, web_fetch, web_search

@@ -4,10 +4,14 @@
 """
 
 import sys
+import io
 import json
 import numpy as np
 import pandas as pd
 import tushare as ts
+
+# 设置UTF-8输出编码
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 
 # Tushare API配置
 TUSHARE_TOKEN = "f0ab2f26a58d6e62cda77f4a8418c324fbc6dfd5d702fa1fc0a2d870"

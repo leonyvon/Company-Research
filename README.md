@@ -36,12 +36,13 @@ company-research/
 
 - Python 3.8+
 - Claude Code
+- Ollama
 
 ### 安装步骤
 
 1. 克隆本仓库
 ```bash
-git clone https://github.com/你的用户名/company-research.git
+git clone https://github.com/leonyvon/company-research.git
 cd company-research
 ```
 
@@ -69,27 +70,7 @@ ollama serve
 
 ### 在Claude Code中使用
 
-将本技能目录放置到Claude Code的skills目录，然后使用Bash工具调用脚本：
-
-```python
-# 股票代码/名称转换
-bash python "scripts/stock_inform.py" code_name_transformer "平安银行"
-
-# 查询股票信息
-bash python "scripts/stock_inform.py" query_stock_info "000001.SZ"
-
-# 获取财务数据
-bash python "scripts/stock_data.py" financial_data_handler "000001.SZ"
-
-# 获取股东数据
-bash python "scripts/stock_data.py" holder_data_handler "000001.SZ"
-
-# 搜索新闻
-bash python "scripts/stock_data.py" news_handler "平安银行"
-
-# Ollama智能搜索
-bash python "scripts/ollama_searcher.py "贵州茅台 基本信息"
-```
+将本技能目录放置到你的`.claud/skills`目录，然后跟CC对话就可以了,例如：`帮我调研一下贵州茅台`。
 
 ### 调研流程
 
@@ -112,10 +93,10 @@ bash python "scripts/ollama_searcher.py "贵州茅台 基本信息"
 ## 数据源
 
 本工具使用以下数据源：
-- **Tushare**: 中国股市数据（需要免费注册获取Token）
-- **Adata**: 财务数据增强
-- **Akshare**: 新闻资讯
-- **Ollama**: 智能搜索（可选）
+- **Tushare**
+- **Adata**
+- **Akshare**
+- **Ollama**: 通过工具调用实现智能搜索
 
 ## 免责声明
 
