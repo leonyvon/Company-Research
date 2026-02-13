@@ -16,7 +16,8 @@
 - 主营业务与产品线
 - 市场地位与竞争优势
 - 公司规模与员工情况
-- 发展历程与重要里程碑]
+- 发展历程与重要里程碑
+- ...]
 *注：使用前需确保Ollama服务已启动：`ollama serve`*
 
 ### 行业与概念
@@ -95,7 +96,7 @@ PS(TTM)        X.XX    X.XX        XX%
    - [可能影响分析]
 
 ### 智能分析补充 (来自ollama_searcher)
-[从ollama_searcher获取的近期动态深度分析，包括：
+[从ollama_searcher获取的近期动态深度内容，包括：
 - 近期重大事件与市场反应
 - 管理层变动与战略调整
 - 新产品/技术发布情况
@@ -147,7 +148,7 @@ PS(TTM)        X.XX    X.XX        XX%
 2. **财务数据**: `stock_data.py` - financial_data_handler
 3. **股东数据**: `stock_data.py` - holder_data_handler
 4. **新闻资讯**: `stock_data.py` - news_handler
-5. **深度分析（可选）**: `ollama_searcher.py` - 如使用Ollama进行智能搜索
+5. **深度搜索**: `ollama_searcher.py` - 使用Ollama进行深度搜索
 
 ### 数据时效性
 - 财务数据更新至: [最新报告期]
