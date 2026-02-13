@@ -1,0 +1,15 @@
+# 公司深度调研工具 - Python依赖包
+
+# 核心数据源
+tushare>=1.2.73
+adata>=0.6.0
+akshare>=1.10.0
+
+# Ollama支持 (可选)
+ollama>=0.3.0
+
+# 数据处理
+pandas>=2.0.0
+numpy>=1.24.0
+lxml>=4.9.0
+requests>=2.31.0

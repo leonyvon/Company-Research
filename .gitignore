@@ -1,0 +1,39 @@
+# Git
+*.py[cod]
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# 虚拟环境
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Claude Code
+.claude/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 数据文件
+*.csv
+*.xlsx
+*.xls
+!assets/one_pager_template.md
+
+# 配置文件（包含敏感信息）
+scripts/config.py
+.env
+
+# 日志
+*.log
