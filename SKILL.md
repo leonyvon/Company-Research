@@ -25,14 +25,16 @@ pip install -r requirements.txt
 
 获取 Token: https://tushare.pro/register
 
-### 3. 配置 Ollama (可选)
+### 3. 配置 Ollama (必需)
 
-如需使用智能搜索功能：
+使用智能搜索功能需要Ollama服务：
 ```bash
 # 访问 https://ollama.ai 下载安装
 # 启动服务
 ollama serve
 ```
+
+**重要说明**: ollama_searcher 是本技能的核心组件，用于获取公司基本信息和深度分析。调研流程中必须使用此工具，否则无法生成完整的调研报告。
 
 详细安装说明请参考 `scripts/README.md`
 
@@ -59,7 +61,8 @@ bash python "E:\\AI\\SKILLS\\company-research\\scripts\\<脚本名>.py" <功能>
 2. **行业定位**: 使用 `query_stock_info` 获取行业分类和概念板块
 3. **风险初筛**: 查看是否有明确的风险提示
 4. **深度信息获取**: 使用 `ollama_searcher` 获取公司基本信息（关键词："[公司名称] 基本信息"）
-   - **注意**: 此脚本需要Ollama服务运行，至少需要20秒等待时间
+   - **必需**: 此脚本需要Ollama服务运行，至少需要20秒等待时间
+   - **无法跳过**: 本技能设计依赖ollama_searcher获取核心公司信息
 
 **参考文档**: `references/industry_research.md` - 行业定位和分析方法
 
@@ -81,7 +84,8 @@ bash python "E:\\AI\\SKILLS\\company-research\\scripts\\<脚本名>.py" <功能>
 2. **重要事件**: 关注业绩预告、重大事项等
 3. **行业关联**: 搜索行业相关动态
 4. **智能分析补充**: 使用 `ollama_searcher` 获取深度分析（关键词："[公司名称] 近期动态"）
-   - **注意**: 此脚本需要Ollama服务运行，至少需要20秒等待时间
+   - **必需**: 此脚本需要Ollama服务运行，至少需要20秒等待时间
+   - **无法跳过**: 本技能设计依赖ollama_searcher获取深度动态分析
 
 **参考文档**: `references/industry_research.md` - 行业政策分析和趋势判断
 
@@ -137,7 +141,8 @@ bash python "E:\\AI\\SKILLS\\company-research\\scripts\\ollama_searcher.py" "平
 **Ollama注意事项**:
 - 使用前需确保Ollama服务已启动：`ollama serve`
 - ollama_searcher脚本每次调用至少需要20秒处理时间
-- 如Ollama不可用，可跳过步骤3和步骤7，基于其他数据生成简化版报告
+- **必需步骤**: 步骤3和步骤7是调研流程的核心组件，无法跳过
+- 如Ollama不可用，本技能无法生成完整的调研报告
 
 ## 报告生成原则
 

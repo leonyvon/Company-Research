@@ -5,7 +5,7 @@ tushare>=1.2.73
 adata>=0.6.0
 akshare>=1.10.0
 
-# Ollama支持 (可选)
+# Ollama支持 
 ollama>=0.3.0
 
 # 数据处理
